@@ -1,18 +1,27 @@
-my_name = 'Zed A. Shaw'
-my_age = 35 
-my_height = 74 # inches
-my_weight = 180 # pounds
-my_eyes = 'Blue'
-my_teeth = 'White'
-my_hair = 'Brown'
+# Exercise 5: More Variables and Printing
+# http://learnpythonthehardway.org/book/ex5.html
 
-print "Let's talk about %s." % my_name
-print "He's %d inches tall." % my_height
-print "And %d pounds heavy." % my_weight
+# variable definitions, both strings and numbers
+name = 'Zed A. Shaw'
+age = 35 
+height = 74 # inches
+weight = 180 # pounds
+eyes = 'Blue'
+teeth = 'White'
+hair = 'Brown'
+
+# inserting variable values into strings via format strings
+# percent symbols followed by s or d within print statement indicate format sequences for strings and integers
+# % after print statement needs to be followed by variable name whose value should be inserted; separate several by comma and enclose in parentheses
+print "Let's talk about %s." % name
+print "He's %d inches tall." % height
+print "And %d pounds heavy." % weight
 print "Actually that's not too heavy."
-print "He's got %s eye and %s hair." % (my_eyes, my_hair)
-print "His teeth are usually %s depending on the coffee." % my_teeth
+print "He's got %s eye and %s hair." % (eyes, hair)
+print "His teeth are usually %s depending on the coffee." % teeth
 
-# inserting more
+# more inserting with on-thy-fly math
 print "If I add %d, %d, and %d I get %d." % (
-	my_age, my_height, my_weight, my_age + my_height + my_weight)
+	age, height, weight, age + height + weight)
+
+# Study Drill 1: removing all ""-parts from variable names
