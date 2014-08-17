@@ -10,7 +10,7 @@ eyes = 'Blue'
 teeth = 'White'
 hair = 'Brown'
 
-# inserting variable values into strings via format strings
+# inserting variable values into strings via format strings, see https://docs.python.org/2/library/stdtypes.html#string-formatting
 # percent symbols followed by s or d within print statement indicate format sequences for strings and integers
 # % after print statement needs to be followed by variable name whose value should be inserted; separate several by comma and enclose in parentheses
 print "Let's talk about %s." % name
