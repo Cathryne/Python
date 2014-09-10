@@ -44,3 +44,25 @@ try:
 	print "Your 3rd variable is the number:", third
 except ValueError:
 	print "Your 3rd variable is not a number."
+
+# Can these try statements be condensed?
+# try:
+# 	first = float(first)
+# 	print "Your 1st variable is the number:", first
+# 	second = float(second)
+# 	print "Your 2nd variable is the number:", second
+# 	third = float(third)
+# 	print "Your 3rd variable is the number:", third
+# 	# no, check all checks after 1st failed one fail as well and all exception commands are executed
+# 	# or this?
+# 	first = float(first)
+# 	second = float(second)
+# 	third = float(third)
+# 	print "Your 1st variable is the number:", first
+# 	print "Your 2nd variable is the number:", second
+# 	print "Your 3rd variable is the number:", third
+#	# no, all checks fail and all exception commands are executed
+# except ValueError:
+# 	print "Your 1st variable is not a number."
+# 	print "Your 2nd variable is not a number."
+# 	print "Your 3rd variable is not a number."
