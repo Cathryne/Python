@@ -29,21 +29,21 @@ print "Processing... Done!"
 # exception handling for "ValueError: could not convert string to float"
 try:
 	first = float(first)
-	print "Your 1st variable is the number:", first
+	print "Your 1st variable is the number:", first, type(first) 
 except ValueError:
-	print "Your 1st variable is not a number."
+	print "Your 1st variable is not a number, but:", type(first) 
 	
 try:	
 	second = float(second)
-	print "Your 2nd variable is the number:", second
+	print "Your 2nd variable is the number:", second, type(second)
 except ValueError:
-	print "Your 2nd variable is not a number."
+	print "Your 2nd variable is not a number, but:", type(second)
 	
 try:
 	third = float(third)
-	print "Your 3rd variable is the number:", third
+	print "Your 3rd variable is the number:", third, type(third)
 except ValueError:
-	print "Your 3rd variable is not a number."
+	print "Your 3rd variable is not a number, but:", type(third)
 
 # Can these try statements be condensed?
 # try:
