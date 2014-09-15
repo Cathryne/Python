@@ -6,10 +6,10 @@
 filename = raw_input("\nWhich file do you want to open? Please type its name here, including file extension: ")
 
 # opens file and assigned it to variable
-txt = open(filename)
+file_content = open(filename)
 # print type(txt) would return 'file'
 
 # displayes filename (given as command argument)...
 print "OK, thanks! Here's your file %r:" % filename
-print txt.read()    #  ...and file contents after calling read function on file variable
-txt.close()
+print file_content.read()    #  ...and file contents after calling read function on file variable
+file_content.close()
