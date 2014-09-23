@@ -1,7 +1,7 @@
 # Exercise 16: Reading and Writing Files
 # http://learnpythonthehardway.org/book/ex16.html
 
-# pass & unpack command argument into script
+# pass & unpack command arguments into script
 from sys import argv
 script, filename = argv
 
