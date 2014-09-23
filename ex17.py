@@ -1,3 +1,6 @@
+# Exercise 17: More Files
+# http://learnpythonthehardway.org/book/ex17.html
+
 from sys import argv
 from os.path import exists
 
@@ -5,9 +8,8 @@ script, from_file, to_file = argv
 
 print "Copyinf from %s to %s..." % (from_file, to_file)
 
-# We could do these two on one line, but how?
-in_file = open(from_file)
-in_data = in_file.read()
+# combine opening of file and reading of content
+in_data = open(from_file).read()
 
 print "The input file is %d bytes ling." % len(in_data)
 
@@ -21,4 +23,3 @@ out_file.write(in_data)
 print "OK, all done!"
 
 out_file.close()
-in_file.close()
