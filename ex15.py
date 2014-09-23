@@ -20,7 +20,7 @@ print "Type the filename again:"
 file_again = raw_input("> ")
 txt_again = open(file_again)
 print txt_again.read()
-
+# brain teaser: enter ex15.py when prompted for filename again => code of this file will be displayed, because it is read just like any other text file.
 
 # Study Drill 7: properly close files by calling close() method on file variable
 txt_again.close()
