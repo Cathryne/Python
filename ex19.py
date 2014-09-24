@@ -7,16 +7,12 @@ def cheese_and_crackers(cheese_count, boxes_of_crackers):
 	print "Man! That's enough for a party!"
 	print "Get a blanket.\n"
 
-print "We can just give the function numbers directly:"
-cheese_and_crackers(20, 30)
+# CSQ: get variables from user
 
-print "Or, we can use variables from our script:"
-amount_of_cheese = 10
-amount_of_crackers = 50
+print "Yo! Raid the fridge!"
+amount_of_cheese = int(raw_input("How much cheese do you have? "))
+amount_of_crackers = int(raw_input("And how many boxes of crackers? "))
 cheese_and_crackers(amount_of_cheese, amount_of_crackers)
 
-print "WE can even do math inside the function call:"
-cheese_and_crackers(10 + 20, 5 + 6)
-
-print "And we can combie the two, varialbes and math:"
-cheese_and_crackers(amount_of_cheese + 100, amount_of_crackers + 1000)
+print "Or, let's increase that. I know you are hiding some of the goodies!"
+cheese_and_crackers(amount_of_cheese * 2, amount_of_crackers * 3)
