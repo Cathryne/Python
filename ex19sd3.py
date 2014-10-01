@@ -3,6 +3,10 @@
 # Study Drill 3: Write at least one more function of your own design, and run it 10 different ways.
 
 def milkshake(milk_to_blend, fruit_to_blend, suggar_to_blend):
+	"""
+	Calculates serving size and prints out ingredient amounts
+	for milkshake.
+	"""
 	servings = int(raw_input("Oh yeah, I forgot! For how many servings shall all this be? "))
 	milk_to_serve = servings * milk_to_blend
 	fruit_to_serve = servings * fruit_to_blend

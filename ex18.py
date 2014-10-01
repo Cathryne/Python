@@ -3,19 +3,20 @@
 
 # function definition with argument unpacking like with argv 
 def print_two(*args):
+	"""Takes two arguments, unpacks and prints them."""
 	arg1, arg2 = args
 	print "arg1: %r, arg2: %r" % (arg1, arg2)
 
-# unpacking kinda pointless, write arguments out for clarity
 def print_two_again(arg1, arg2):
+	"""Takes two arguments and prints them without unpacking"""
 	print "arg1: %r, arg2: %r" % (arg1, arg2)
 
-# this just takes 1 argument
 def print_one(arg1):
+	"""Takes just one argument."""
 	print "arg1: %r" % arg1
 
-# this one takes no arguments
 def print_none():
+	"""Takes no arguments."""
 	print "I got nothin'."
 
 # function calls with arguments (in number and order as defined above)

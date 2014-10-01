@@ -2,6 +2,10 @@
 # http://learnpythonthehardway.org/book/ex19.html
 
 def cheese_and_crackers(cheese_count, boxes_of_crackers):
+	"""
+	Prints out the results of cheese and crackers counting
+	by different, previously done calculations.
+	"""
 	print "You have %d cheeses!" % cheese_count
 	print "You have %d boxes of crackers!" % boxes_of_crackers
 	print "Man! That's enough for a party!"

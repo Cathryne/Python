@@ -7,18 +7,23 @@ from sys import argv
 # unpacks command line arguments
 script, input_file = argv
 
-# function that takes opened file object and prints it entirely
 def print_all(f):
+	"""Takes opened file object and prints it entirely"""
 	print f.read()
 
-# function that moves (back) to byte 0 in file
+# function that 
 def rewind(f):
+	"""Takes opened file object  moves (back) to byte 0 in file."""
 	f.seek(0)
 
 # function that prints numbered lines from file 
 # CSQ: How does readline() know where each line is?
 # 	It doesn't. Instead, position in the file is returned, so file opbject "f" retains that for next function call. "current_line" and "line_count" are only for printing the incrementing numbers, not for specifying the actual line in the file.
 def print_a_line(line_count, f):
+	"""
+	Takes previously calculated line count and prints it together
+	with content of line that way determined by readline()'s return.
+	"""
 	print line_count, f.readline()
 
 # creates file object by opening the file provided via command line argument
