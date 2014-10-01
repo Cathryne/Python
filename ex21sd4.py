@@ -5,6 +5,10 @@
 from math import sqrt
 
 def pythagoras(x, y):
+	"""
+	Calculates length of hypotenuse c from given lengths of
+	legs a and b.
+	"""
 	print "Square-rooting squares of a and b via a function...",
 	return round(sqrt(x ** 2 + y ** 2), 3)
 		

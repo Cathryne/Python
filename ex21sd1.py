@@ -3,6 +3,7 @@
 # Study Drill 1: Practice returning of values with other functions
 
 def add(a, b, c):
+	"""Adds 3 variables."""
 	print "Adding %d, %d & %d... " % (a, b, c)
 	return a + b + c
 
