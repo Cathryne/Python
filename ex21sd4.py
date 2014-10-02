@@ -27,35 +27,24 @@ print pythagoras(a * c, b * c)
 
 def fibonacci(a, b):
 	c = a + b
+	# using only one calculation here & overwriting either initial variable with result
+	# yields linearly increasing sequence, because 2nd initial variable remains static
+	# second helper variable is necessary so that results are generated in pairs
 	d = b + c
-	e = c + d
-	f = d + e
-	g = e + f
-	h = f + g
-	i = g + h
-	j = h + i
-	k = i + j
-	l = j + k
-	m = k + l
-	n = l + m
-	o = m + n
-	p = n + o
-	q = o + p
-	r = p + q
-	s = q + r
-	t = r + s
-	u = s + t
-	v = t + u
-	w = u + v
-	x = v + w
-	y = w + x
-	z = x + y
-	return c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z
+	print c
+	print d
+	return (c, d)
 
 print "And now another math genius' tinkering! Let's do a Fibonacci sequence."
 print "I'll need to numbers from you:"
 a = int(raw_input("a = "))
 b = int(raw_input("b = "))
+limit = int(raw_input("And I'll need an upper limit. Can't be doing this all day! "))
 
-print "OK, the sequence is based on %d and %d is:" % (a, b), fibonacci(a, b)
+print "OK, the sequence is based on %d and %d up to %d is:" % (a, b, limit)
+
+while b < limit:
+	 a, b = fibonacci(a, b)
+	 # self-assigning necessary to pass next pair into sequence
+
 
