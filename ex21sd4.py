@@ -25,6 +25,7 @@ c = int(raw_input("Again, with the above valules multiplied by: "))
 print pythagoras(a * c, b * c)
 
 
+
 def fibonacci(a, b):
 	c = a + b
 	# using only one calculation here & overwriting either initial variable with result
@@ -35,7 +36,7 @@ def fibonacci(a, b):
 	print d
 	return (c, d)
 
-print "And now another math genius' tinkering! Let's do a Fibonacci sequence."
+print "\n\nAnd now another math genius' tinkering! Let's do a Fibonacci sequence."
 print "I'll need to numbers from you:"
 a = int(raw_input("a = "))
 b = int(raw_input("b = "))
@@ -43,8 +44,13 @@ limit = int(raw_input("And I'll need an upper limit. Can't be doing this all day
 
 print "OK, the sequence is based on %d and %d up to %d is:" % (a, b, limit)
 
-while b < limit:
+c = a + b
+while c < limit:
 	 a, b = fibonacci(a, b)
 	 # self-assigning necessary to pass next pair into sequence
+	 c = a + b
 
-
+# more elegant solutions
+# https://github.com/nunayerBeezwax/fibonacci_python/blob/master/fibonacci.py
+# https://github.com/yamogi/Python_Fibonacci/blob/master/fib.py
+# https://github.com/DeanThomas1983/fibonacci/blob/master/fibonacci/src/fibonacci.py
