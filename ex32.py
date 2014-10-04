@@ -1,28 +1,44 @@
+# Exercise 32: Loops and Lists
+# http://learnpythonthehardway.org/book/ex32.html
+
+# initialises lists
 the_count = [1, 2, 3, 4, 5]
 fruits = ['apples', 'oranges', 'pears', 'apricots']
 change = [1, 'pennies', 2, 'dimes', 3, 'quarters']
 
-# this first kind of for-look goes through a list
+# for-loop uses iterator to go through list
 for number in the_count:
     print "This is count %d" % number
 
-# same as above
 for fruit in fruits:
     print "A fruit of type: %s" % fruit
 
-# We can also go through mixed lists, but we have to use raw string formatting
+# printing items from mixed lists requires general conversion specifier in string formatting
 for i in change:
     print "I got %r" % i
 
-# We can also build lists, starting with an empty one
+# initialises empty list
 elements = []
 
-# Then use the range function to do 0 to 5 counts
-for i in range(0, 6):
-    print "Adding %d to the list." % i
-    # applies "append"-method
-    elements.append(i)
+# fill empty list iteratively
+# for i in range(0, 6):
+#     print "Adding %d to the list." % i
+#     # applies "append"-method
+#     elements.append(i)
+# Study Drill 2: fill empty list in a simpler way
+elements = range(0, 6)
 
-# Now we can print those, too.
+# Works in Python console also :-)
+# >>> list = []
+# >>> list = range(11)
+# >>> list
+# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# >>> list = []
+# >>> for i in range(11):
+# ...     list.append(i)
+# ...
+# >>> list
+# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
 for i in elements:
     print "Element was: %d" % i
