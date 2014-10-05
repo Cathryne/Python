@@ -1,13 +1,12 @@
 # Exercise 33: While Loops
 # http://learnpythonthehardway.org/book/ex33.html
 
-# functionalised while-loop
+# functionalised for-loop
 def iterate(i, upper_bound, step):
-    while i < upper_bound:
+    for i in range(0, upper_bound, step):
         print "At the top i is %d" % i
         numbers.append(i)
 
-        i += step
         print "Numbers now: ", numbers
         print "At the bottom i is %d" % i
 
