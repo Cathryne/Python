@@ -2,8 +2,8 @@
 # http://learnpythonthehardway.org/book/ex33.html
 
 # functionalised while-loop
-def iterate(i):
-    while i < 6:
+def iterate(i, upper_bound):
+    while i < upper_bound:
         print "At the top i is %d" % i
         numbers.append(i)
 
@@ -14,8 +14,11 @@ def iterate(i):
 i = 0
 numbers = []
 
-#function call passes iterator
-iterate(i)
+# use different numbers
+upper_bound = int(raw_input("a = "))
+
+#function call passes iterator & upper bound
+iterate(i, upper_bound)
 
 
 print "The numbers: "
