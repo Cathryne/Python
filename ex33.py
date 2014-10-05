@@ -1,9 +1,9 @@
 # Exercise 33: While Loops
 # http://learnpythonthehardway.org/book/ex33.html
 
-# functionalised loop
+# Study Drills: functionalised loop with variable end point % step-size
 def iterate(N, M):
-    for i in range(N):
+    for i in range(0, N, M):    # step size is optional argument of range() function, which makes start point mandatory
         print "i at the top: %d" % i
         numbers.append(i)   # iterative action
         i += M  # incrementation of iterator absolutely essential to prevent infinite looping
