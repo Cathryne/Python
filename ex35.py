@@ -9,7 +9,6 @@ def gold_room():
 	choice = raw_input("This room is full of gold. How much do you take? ")
 	# other variant of checking input for integer type:  if next.isdigit(), see  http://stackoverflow.com/a/5424750
 	try:
-		val = int(choice)
 		how_much = int(choice)
 	except ValueError:
 	    dead("Man, learn to type a number.") # jumps to line 63
