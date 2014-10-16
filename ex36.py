@@ -3,8 +3,8 @@
 
 print """\nWelcome to CleanLab! The cleanest laboratory at this university!
 If anyone bothers. Which you do, right...?\n
-To progress in this game, type room names
-and verbs from the choices presented to you."""
+To progress in this game, type numbers and letters
+from the choices presented to you."""
 
 # enables restarting of program
 import sys
@@ -29,19 +29,8 @@ def do_stuff(action, choice1, choice2, result1, result2):
     elif choice2 in choice:
         print "\t", result2
     else:
-        restart("I have no idea what you mean!?! Press any key to restart... ")
-
-
-
-# Room selection
-
-print """You stand in the hallway of CleanLab.
-You can enter one of the these rooms:"""
-rooms = ["protein lab", "DNA lab", "microscopy room"] # , "climate chamber", "freezer room", "PhD office", "PostDoc office", "PI office", "storage rooom"
-
-for i in rooms:
-    print "\t", rooms.index(i), "-", i
-    i += i
+        print "I have no idea what you mean!?! Press any key to restart..."
+        do_stuff(action, choice1, choice2, result1, result2)
 
 
 def room_choice():
@@ -58,6 +47,25 @@ def room_choice():
 #         print "Try again."
 #         room_choice()
 
+
+def talk_to():
+    person = raw_input("Who do you want to chat to? ")
+    try:
+       person = int(person)
+    except ValueError:
+       print "Learn to type a number!"
+
+    return person
+
+
+print """You stand in the hallway of CleanLab.
+You can enter one of the these rooms:"""
+rooms = ["microscopy room", "protein lab", "DNA lab", "office"] # , "climate chamber", "freezer room", "PostDoc office", "PI office", "storage rooom"
+
+for i in rooms:
+    print "\t", rooms.index(i), "-", i
+    i += i
+
 room = room_choice()
 
 if room == 0:
@@ -66,8 +74,28 @@ if room == 0:
 elif room == 1:
     print "\nYou hear the squeaking of an old gel shaker.\nWhat do you do to stop the squeaking?"
     do_stuff("Lubricate with some oil or reduce shaking speed? ", "ubricate", "educe", "Good job! The gels will be well shaken and the blots will work nicely!", "Useless! The gels will be inhomogeneous and the blots won't work well.")
-elif room == 3:
+elif room == 2:
     print "\nYou see the thermocycler's hazard light blinking.\nThe cooling block broke at the end of the sampling run. What do you do with the PCR products inside?"
-    do_stuff("Leave there or transfer to fridge? ", "leave", "transfer", "Not a good idea :-( The samples degraded and your colleague has to repeat the experiment.", "Thanks for saving the samples :-) Just don't forget to tell your colleague where exactly you put the samples.")
+    do_stuff("Leave there or transfer to fridge? ", "eave", "ransfer", "Not a good idea :-( The samples degraded and your colleague has to repeat the experiment.", "Thanks for saving the samples :-) Just don't forget to tell your colleague where exactly you put the samples.")
+elif room == 3:
+    print "\nThere's lots of chatter in the office."
+    persons = ["Professor", "PostDoc", "Technician"]
+
+    for i in persons:
+        print "\t", persons.index(i), "-", i
+        i += i
+
+    person = talk_to()
+
+    if person == 0:
+        print "\tNo time, sorry. Have to prepare talk."
+    elif person == 1:
+        print "\tNo time, sorry. Have to write manuscript."
+    elif person == 2:
+        print "\tNo time, sorry. Have to prepare experiment."
+    else:
+        person = talk_to()
+
+
 else:
     restart("That was not any of those numbers!")
