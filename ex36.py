@@ -46,6 +46,11 @@ def room_choice():
 #         print "Try again."
 #         room_choice()
 
+def list_options(list_name):
+    for i in list_name:
+        print "\t%d:" % (list_name.index(i) + 1), i
+        i += i
+
 
 
 print """You stand in the hallway of CleanLab.
@@ -53,10 +58,7 @@ You can enter one of the these rooms:"""
 rooms = ["microscopy room", "protein lab", "DNA lab", "office"] # , "climate chamber", "freezer room", "PostDoc office", "PI office", "storage rooom"
 N_rooms = len(rooms)
 
-for i in rooms:
-    print "\t%d:" % (rooms.index(i) + 1), i
-    i += i
-
+list_options(rooms)
 room = room_choice()
 
 if not room <= len(rooms):  # checks if number input makes sense
@@ -74,9 +76,7 @@ elif room == 4:
     print "\nThere's lots of chatter in the office."
     persons = ["Professor", "PostDoc", "Technician"]
 
-    for i in persons:
-        print "\t", i
-
+    list_options(persons)
     person = raw_input("Who do you want to chat to? ")
 
     if not (person in persons):
