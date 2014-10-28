@@ -32,19 +32,32 @@ def do_stuff(action, choice1, choice2, result1, result2):
         restart("\nOK, back to the hallway!")
 
 
-def room_choice():
-    room = raw_input("Which room do you want to enter? Please type its number: ")
+def option_choice(N_options, message):
+    option_number = raw_input(message)
+
     try:
-       room = int(room)
+        option_number = int(option_number)
     except ValueError:
-       restart("Learn to type a number!")
-    return room
+       print "A number, please."
+       return option_choice(N_options, message)
+       # return essential here, because function call only would create noneType in final return value of whole function
+       # learned from https://www.daniweb.com/software-development/python/threads/380491/trouble-with-nonetype-after-calling-a-function#post1638105
+
+    option_number = int(option_number)
+
+    if option_number > N_options:
+        print "Only one of the above numbers, please."
+        return option_choice(N_options, message)
+
+    else:
+        return option_number
+
 #     if any(room in entry for entry in rooms) == True: # learned from http://stackoverflow.com/a/4843172
 #         matching = (s for s in rooms if room in s)
 #         return matching
 #     else:
 #         print "Try again."
-#         room_choice()
+#         option_choice()
 
 def list_options(list_name):
     for i in list_name:
@@ -52,18 +65,14 @@ def list_options(list_name):
         i += i
 
 
-
 print """You stand in the hallway of CleanLab.
 You can enter one of the these rooms:"""
 rooms = ["microscopy room", "protein lab", "DNA lab", "office"] # , "climate chamber", "freezer room", "PostDoc office", "PI office", "storage rooom"
 N_rooms = len(rooms)
-
 list_options(rooms)
-room = room_choice()
+room = option_choice(N_rooms, "Which room do you want to enter? Please type its number: ")
 
-if not room <= len(rooms):  # checks if number input makes sense
-    restart("Learn to type a number!")
-elif room == 1:
+if room == 1:
     print "\nIt's dark in the microscopy room. You flick the light switch and...\n...find a dysfunctional UV emitter. What do you do to fix it?"
     do_stuff("Tune emission or replace light source? ", "une", "eplace", "That was a quick and easy solution. In the short term.", "You spent a lot of money, but the microscope will work for a long time now!")
 elif room == 2:
@@ -75,20 +84,17 @@ elif room == 3:
 elif room == 4:
     print "\nThere's lots of chatter in the office."
     persons = ["Professor", "PostDoc", "Technician"]
-
+    N_persons = len(persons)
     list_options(persons)
-    person = raw_input("Who do you want to chat to? ")
+    person = option_choice(N_persons, "Who do you want to chat to? ")
 
-    if not (person in persons):
-        restart("Learn to type a name!")
-    elif person == "Professor":
+    if person == 1:
         print "\tNo time, sorry. Have to prepare talk."
-    elif person == "PostDoc":
+    elif person == 2:
         print "\tNo time, sorry. Have to write manuscript."
-    elif person == "Technician":
+    elif person == 3:
         print "\tNo time, sorry. Have to prepare experiment."
     else:
-        restart("\nOK, back to the hallway!")
-
+        restart("OK, back to the hallway.")
 else:
     restart("That was not any of those numbers!")
