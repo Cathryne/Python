@@ -51,25 +51,26 @@ def room_choice():
 print """You stand in the hallway of CleanLab.
 You can enter one of the these rooms:"""
 rooms = ["microscopy room", "protein lab", "DNA lab", "office"] # , "climate chamber", "freezer room", "PostDoc office", "PI office", "storage rooom"
+N_rooms = len(rooms)
 
 for i in rooms:
-    print "\t", rooms.index(i), "-", i
+    print "\t%d:" % (rooms.index(i) + 1), i
     i += i
 
 room = room_choice()
 
-if not room < len(rooms):  # checks if number input makes sense
+if not room <= len(rooms):  # checks if number input makes sense
     restart("Learn to type a number!")
-elif room == 0:
+elif room == 1:
     print "\nIt's dark in the microscopy room. You flick the light switch and...\n...find a dysfunctional UV emitter. What do you do to fix it?"
     do_stuff("Tune emission or replace light source? ", "une", "eplace", "That was a quick and easy solution. In the short term.", "You spent a lot of money, but the microscope will work for a long time now!")
-elif room == 1:
+elif room == 2:
     print "\nYou hear the squeaking of an old gel shaker.\nWhat do you do to stop the squeaking?"
     do_stuff("Lubricate with some oil or reduce shaking speed? ", "ubricate", "educe", "Good job! The gels will be well shaken and the blots will work nicely!", "Useless! The gels will be inhomogeneous and the blots won't work well.")
-elif room == 2:
+elif room == 3:
     print "\nYou see the thermocycler's hazard light blinking.\nThe cooling block broke at the end of the sampling run. What do you do with the PCR products inside?"
     do_stuff("Let it be or transfer to fridge? ", "et", "ransfer", "Not a good idea :-( The samples degraded and your colleague has to repeat the experiment.", "Thanks for saving the samples :-) Just don't forget to tell your colleague where exactly you put the samples.")
-elif room == 3:
+elif room == 4:
     print "\nThere's lots of chatter in the office."
     persons = ["Professor", "PostDoc", "Technician"]
 
