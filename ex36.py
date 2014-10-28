@@ -48,16 +48,6 @@ def room_choice():
 
 
 
-def talk_to():
-    person = raw_input("Who do you want to chat to? ")
-    try:
-       person = str(person)
-    except ValueError:
-       print "Learn to type a name!"
-
-    return person
-
-
 print """You stand in the hallway of CleanLab.
 You can enter one of the these rooms:"""
 rooms = ["microscopy room", "protein lab", "DNA lab", "office"] # , "climate chamber", "freezer room", "PostDoc office", "PI office", "storage rooom"
@@ -86,10 +76,10 @@ elif room == 3:
     for i in persons:
         print "\t", i
 
-    person = talk_to()
+    person = raw_input("Who do you want to chat to? ")
 
-    if not ((person in persons) or "leave"):
-        print "Learn to address people! Or leave."
+    if not (person in persons):
+        restart("Learn to type a name!")
     elif person == "Professor":
         print "\tNo time, sorry. Have to prepare talk."
     elif person == "PostDoc":
