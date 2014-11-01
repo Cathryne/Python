@@ -9,11 +9,13 @@ stuff = ten_things.split(' ')  # split string into list at spaces
 more_stuff = ["Day", "Night", "Song", "Frisbee", "Corn", "Banana", "Girl", "Boy"]  # initialise list variable with some items
 
 
-while len(stuff) != 10:
+# CSQ: alternative to while len(stuff) != 10
+for i in range(len(stuff), 10):
     next_one = more_stuff.pop()  # removes and returns last item from 2nd list
     print "Adding: ", next_one
     stuff.append(next_one)  # adds returned item from 2nd list to 1st
     print "There are %d items now." % len(stuff)  # displays length of appended 1st list
+    i += 1  # not for while-loop
 
 print "There we go: ", stuff
 
