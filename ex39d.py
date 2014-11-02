@@ -18,13 +18,15 @@ def result(character, characters_words):
 
 
 print "\nLet's play a literature quiz! I am going to show you famous lines, you select one and then we'll garble the words!\n"
-Hamlets_line = "To be, or not to be, that is the question."    # https://en.wikipedia.org/wiki/To_be,_or_not_to_be#Text
-Crusoes_line = "Thus fear of danger is ten thousand times more terrifying than danger itself."    # https://www.goodreads.com/quotes/318230-thus-fear-of-danger-is-ten-thousand-times-more-terrifying
-Weasleys_line = "Never trust anything that can think for itself if you can't see where it keeps its brain."    # http://www.quotegarden.com/bk-hp.html
 
-print "Hamlet:", Hamlets_line
-print "Crusoe:", Crusoes_line
-print "Weasley:", Weasleys_line
+dict = {
+    "Hamlet" : "To be, or not to be, that is the question.",  # https://en.wikipedia.org/wiki/To_be,_or_not_to_be#Text
+    "Crusoe": "Thus fear of danger is ten thousand times more terrifying than danger itself.",  # https://www.goodreads.com/quotes/318230-thus-fear-of-danger-is-ten-thousand-times-more-terrifying
+    "Weasley": "Never trust anything that can think for itself if you can't see where it keeps its brain."  # http://www.quotegarden.com/bk-hp.html
+    }
+
+for k, v in dict.items():
+    print k, "said: %r" % v
 
 # Get character name from user as raw input & convert to lower case, so that if statements can work with only that spelling variant
 choice = raw_input("\nOK, whose quote shall we work with? Please type the name of the characters who spoke the quote you want: ")
