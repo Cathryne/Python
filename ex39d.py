@@ -2,7 +2,7 @@
 # http://learnpythonthehardway.org/book/ex38.html
 # Study Drill 6: other examples of lists and what do do with them
 
-import string  #
+import string
 
 
 # create list of words from character's line by stripping punctuation & splitting at spaces
@@ -10,6 +10,10 @@ def wordlist(dict, character):
     characters_words = dict[character].translate(None, string.punctuation).split(' ')
     print "\n%s's words are:" % character, characters_words
     print "\nAnd %r was his last word..." % characters_words.pop()
+
+def character_choice(message):
+    character = str(raw_input(message))
+    return character
 
 
 print "\nLet's play a literature quiz! I am going to show you famous lines, you select one and then we'll garble the words!\n"
@@ -24,9 +28,12 @@ for k, v in dict.items():
     print k, "said: %r" % v
 
 # Get character name from user as raw input & convert to lower case, so that if statements can work with only that spelling variant
-choice = raw_input("\nOK, whose quote shall we work with? Please type the name of the characters who spoke the quote you want: ")
+character = character_choice("Whose quote shall we work with? Please type the name of its speaker: ")
 
 try:
-    wordlist(dict, choice)
+    wordlist(dict, character)
 except KeyError:
-    print "That was not the name of one of those characters :-("
+    character = character_choice("Lean to type a name! ")
+    wordlist(dict, character)
+
+
