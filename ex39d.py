@@ -6,13 +6,8 @@ import string  #
 
 
 # create list of words from character's line by stripping punctuation & splitting at spaces
-def wordlist(characters_line):
-	characters_words = characters_line.translate(None, string.punctuation)
-	characters_words = characters_words.split(' ')
-	# 1-line alternative: characters_words = characters_line.translate(None, string.punctuation).split(' ')
-	return characters_words
-
-def result(character, characters_words):
+def wordlist(dict, character):
+    characters_words = dict[character].translate(None, string.punctuation).split(' ')
     print "\n%s's words are:" % character, characters_words
     print "\nAnd %r was his last word..." % characters_words.pop()
 
@@ -31,21 +26,7 @@ for k, v in dict.items():
 # Get character name from user as raw input & convert to lower case, so that if statements can work with only that spelling variant
 choice = raw_input("\nOK, whose quote shall we work with? Please type the name of the characters who spoke the quote you want: ")
 
-# if ("hamlet" or "Hamlet") in choice: # doesn't work, only 1st one is accepted
-if "Hamlet" in choice:
-	# Hamlets_words = Hamlet.translate(None, string.punctuation)
-	# Hamlets_words = Hamlets_words.split(' ')
-	# Hamlets_words = Hamlet.split(' ') doesn't work, because Hamlet string variable still has the punctuation, only Hamlets_words doesn't
-	# functionalised version of above:
-	Hamlets_words = wordlist(Hamlets_line)
-	result(choice, Hamlets_words)
-elif "Crusoe" in choice:
-	Crusoes_words = wordlist(Crusoes_line)
-	result(choice, Crusoes_words)
-elif "Weasley" in choice:
-	Weasleys_words = wordlist(Weasleys_line)
-	result(choice, Weasleys_words)
-else:
-	print "No correct guess, sorry!"
-
-print ""
+try:
+    wordlist(dict, choice)
+except KeyError:
+    print "That was not the name of one of those characters :-("
