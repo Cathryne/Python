@@ -13,7 +13,10 @@ def wordlist(dict, character):
 
 def character_choice(message):
     character = str(raw_input(message))
-    return character
+    try:
+        wordlist(dict, character)
+    except KeyError:
+        character_choice("Lean to type a name! ")  # recall function with different prompt, until correct input is given
 
 
 print "\nLet's play a literature quiz! I am going to show you famous lines, you select one and then we'll garble the words!\n"
@@ -28,12 +31,4 @@ for k, v in dict.items():
     print k, "said: %r" % v
 
 # Get character name from user as raw input & convert to lower case, so that if statements can work with only that spelling variant
-character = character_choice("Whose quote shall we work with? Please type the name of its speaker: ")
-
-try:
-    wordlist(dict, character)
-except KeyError:
-    character = character_choice("Lean to type a name! ")
-    wordlist(dict, character)
-
-
+character_choice("Whose quote shall we work with? Please type the name of its speaker: ")
