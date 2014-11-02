@@ -23,15 +23,25 @@ def make_list(character, quote):
 	# print quote_list
 	return quote_list
 
-print "\tLet's play a literature game! You are going to tell me 2 famous quotes and I'm going to tell you, which words they have in common."
+def add_to_dict(dict, i):
+    character = str(raw_input("\tWho shall 1st quote number %d be from? " % (i+1)))
+    quote = str(raw_input("\tAnd what did they say? "))
+    dict[character] = quote  # one at a time
+    return dict
 
-character1 = str(raw_input("\tWho shall the 1st quote be from? "))
-quote1 = str(raw_input("\tAnd what did they say? "))
-quote1_list = make_list(character1, quote1)
 
-character2 = str(raw_input("\tNow, who shall the 2nd quote be from? "))
-quote2 = str(raw_input("\tAnd the 2nd one? "))
-quote2_list = make_list(character2, quote2)
+N_quotes = 2
+print "\tLet's play a literature game! You are going to tell me %d famous quotes and I'm going to tell you, which words they have in common." % N_quotes
+
+dict = {}
+
+for i in range(N_quotes):
+    add_to_dict(dict, i)
+
+print "OK, we'll use these quotes:"
+for k, v in dict.items():
+    print k, "said: %r" % v
+
 
 # determine longer quote & assign
 if len(quote1_list) <= len(quote2_list):
