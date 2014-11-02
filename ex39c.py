@@ -1,4 +1,4 @@
-# Exercise 39: Dictionaries, Oh Lovely Dictionaries
+# Exercise 39: Making Your Own Dictionary Module
 # http://learnpythonthehardway.org/book/ex39.html
 
 import ex39c_hashmap
@@ -20,7 +20,6 @@ ex39c_hashmap.set(cities, 'FL', 'Jacksonville')
 # add some more cities
 ex39c_hashmap.set(cities, 'NY', 'New York')
 ex39c_hashmap.set(cities, 'OR', 'Portland')
-
 
 # print out some cities
 print '-' * 10
@@ -46,7 +45,7 @@ print '-' * 10
 ex39c_hashmap.list(cities)
 
 print '-' * 10
-# by default ruby says "nil" when something isn't in there
+# by default python says "nil" when something isn't in there
 state = ex39c_hashmap.get(states, 'Texas')
 
 if not state:
@@ -56,3 +55,18 @@ if not state:
 # can you do this on one line?
 city = ex39c_hashmap.get(cities, 'TX', 'Does Not Exist')
 print "The city for the state 'TX' is: %s" % city
+
+print '-' * 10
+print "Now adding a city to Texas"
+ex39c_hashmap.set(cities, 'TX', 'Houston')
+print ex39c_hashmap.list(cities)  # introduces a None somehow at end of list
+
+print '-' * 10
+print "We have the following cities now:"
+print list(cities)
+delete_cities = str(raw_input("Which state shall we delete the city from? "))
+ex39c_hashmap.delete(cities, delete_cities)
+print "OK, it's deleted, see?"
+print list(cities)
+
+
