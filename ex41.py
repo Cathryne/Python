@@ -36,12 +36,12 @@ def convert(snipped, phrase):
     results = []
     param_names = []
 
-    for in in range(0, snippet.count("@@@")):
-        param_count = random.randitn(1,3)
-        param_names.append(', '.join(random.samples(WORDS, param_count)))
+    for i in range(0, snippet.count("@@@")):
+        param_count = random.randint(1,3)
+        param_names.append(', '.join(random.sample(WORDS, param_count)))
 
     for sentence in snipped, phrase:
-        results = sentence[:]
+        result = sentence[:]
 
         # fake class names
         for word in class_names:
@@ -62,17 +62,17 @@ def convert(snipped, phrase):
 # keep going until they hit CTRL+D
 try:
     while True:
-        snippets = Phrases.keys()
+        snippets = PHRASES.keys()
         random.shuffle(snippets)
 
         for snippet in snippets:
-            phrase = PHRASE[snippet]
+            phrase = PHRASES[snippet]
             question, answer = convert(snippet, phrase)
             if PHRASE_FIRST:
                 question, answer = answer, question
 
-            print questions
+            print question
             raw_input("> ")
-            print "ANSWER: %s\n\n" & answer
+            print "ANSWER:  %s\n\n" % answer
 except EOFError:
     print "\nBye"
