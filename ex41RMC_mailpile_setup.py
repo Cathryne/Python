@@ -43,7 +43,9 @@ except:
 
 ## Install ###################################################################
 
+# RMC 1. class "Builder" inherits from "build_py"...
 class Builder(build_py):
+    # RMC 2. ...And has a function "run" that takes parameter "self", but 3. & 4. no other attributes
     def run(self):
         try:
             assert(0 == subprocess.call(['make', 'bdist-prep'], cwd=here))
@@ -51,6 +53,7 @@ class Builder(build_py):
             print "Error building package. Try running 'make'."
             exit(1)
         else:
+            # RMC From class "build_py", get function "run" and execute with parameter "self".
             build_py.run(self)
 
 
