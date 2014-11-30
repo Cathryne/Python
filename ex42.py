@@ -19,7 +19,7 @@ class Cat(Animal):
         # Cat has-a attribute "name"
         self.name = name
 
-# Person is-a object
+# Person is-a object => parent class to Employee(Person)
 class Person(object):
 
     def __init__(self, name):
@@ -29,11 +29,13 @@ class Person(object):
         # Person has-a pet of a default type upon instantiation
         self.pet = None
 
-# Employee is-a Person
+# Employee is-a Person => child class of Person(object)
 class Employee(Person):
 
     def __init__(self, name, salary):
-        # Employee has-a attribute that results from function "__ini__" being called with parameter "name" on result of function "super" that is called with parameters "Employee" & "self"
+        # Employee has-a attribute that results from method  "__init__" being called with parameter "name" on result of function "super" that is called with parameters "Employee" & "self"
+        # super() runs __init__ of parent class; long explanation: http://rhettinger.wordpress.com/2011/05/26/super-considered-super/
+        # effectively; Employee has-a name
         super(Employee, self).__init__(name)
         # Employee has-a salary
         self.salary = salary
@@ -75,5 +77,5 @@ flipper = Fish()
 # crouse is-a Salmon is-a fish
 crouse = Salmon()
 
-# hary is-a Halibut is-a fish
+# harry is-a Halibut is-a fish
 harry = Halibut()
