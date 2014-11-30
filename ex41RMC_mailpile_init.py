@@ -19,11 +19,15 @@ from mailpile.safe_popen import MakePopenUnsafe
 MakePopenUnsafe()
 
 
+# RMC 1. Class "ElementHasClass" inherits from "object"...
 class ElementHasClass(object):
+    # RMC 2. ...And has an "__init__" function that takes parameters "self", "locator_tuple" and "class_name"...
     def __init__(self, locator_tuple, class_name):
+        # RMC 3. & 4. ...Sets its own attributes "locator" and "class_name" of to "locator_tuple" and "class_name"
         self.locator = locator_tuple
         self.class_name = class_name
 
+    # RMC 2. It also has a function "__call__" that takes parameters "self" and "driver".
     def __call__(self, driver):
         try:
             e = driver.find_element(self.locator[0], self.locator[1])
@@ -31,12 +35,15 @@ class ElementHasClass(object):
         except (NoSuchElementException, StaleElementReferenceException):
             return False
 
-
+# RMC 1. Class "ElementHasNotClass" inherits from "object"... Same as above!
 class ElementHasNotClass(object):
+    # RMC 2. ...And has an "__init__" function that takes parameters "self", "locator_tuple" and "class_name"...
     def __init__(self, locator_tuple, class_name):
+        # RMC 3. & 4. ...Sets its own attributes "locator" and "class_name" of to "locator_tuple" and "class_name"
         self.locator = locator_tuple
         self.class_name = class_name
 
+    # RMC 2. It also has a function "__call__" that takes parameters "self" and "driver".
     def __call__(self, driver):
         try:
             e = driver.find_element(self.locator[0], self.locator[1])
@@ -44,7 +51,7 @@ class ElementHasNotClass(object):
         except (NoSuchElementException, StaleElementReferenceException):
             return True
 
-
+# RMC 1. Class "SeleniumScreenshotOnExceptionAspecter" inherits from "type"...
 class SeleniumScreenshotOnExceptionAspecter(type):
     """Wraps all methods starting with *test* with a screenshot aspect.
 
@@ -66,6 +73,7 @@ class SeleniumScreenshotOnExceptionAspecter(type):
         none
     """
 
+    # RMC 2. ...And has a function "new" that takes parameters "mcs", "name", "bases" & "dict"
     def __new__(mcs, name, bases, dict):
         for key, value in dict.items():
             if (hasattr(value, "__call__")
@@ -76,11 +84,14 @@ class SeleniumScreenshotOnExceptionAspecter(type):
         return super(SeleniumScreenshotOnExceptionAspecter,
                      mcs).__new__(mcs, name, bases, dict)
 
+    # RMC 2. ...And has a method "wrap_method" that takes parameters "mcs", "method"
     @classmethod
     def wrap_method(mcs, method):
         """Wraps method with a screenshot on exception aspect."""
         # method name has to start with test, otherwise unittest runner
         # won't detect it
+
+        # RMC 2. ...Which itself has a function "test_call_wrapper_method" that takes parameters "*args" (unpacked command arguments?) and "**kw"
         def test_call_wrapper_method(*args, **kw):
             """The wrapper method
 
@@ -108,6 +119,7 @@ class SeleniumScreenshotOnExceptionAspecter(type):
         return test_call_wrapper_method
 
 
+# RMC 1. Class "MailpileSeleniumTest" inherits from "MailPileUnittest"...
 class MailpileSeleniumTest(MailPileUnittest):
     """Base class for all selenium GUI tests
 
@@ -129,14 +141,20 @@ class MailpileSeleniumTest(MailPileUnittest):
         ...         self.driver.save_screenshot('screen2.png')
         ...         self.assertIn('Contacts', self.driver.title)
     """
+    # RMC 3. & 4. ...Which has an attribute "__metaclass__" which is set to an (an instance of class?) "SeleniumScreenshotOnExceptionAspecter"
     __metaclass__ = SeleniumScreenshotOnExceptionAspecter
 
+    # RMC 3. ...And has the attributes "DRIVER" and "http_worker" set to None
     DRIVER = None
     http_worker = None
 
+
+    # RMC 2. ...And has an "__init__" function that takes parameters "self", "*args", "**kwargs".
     def __init__(self, *args, **kwargs):
+        # RMC ...From class "MailPileUnittest" gets "__init__" function and executes it with parameters "self", "*args", "**kwargs".
         MailPileUnittest.__init__(self, *args, **kwargs)
 
+    # RMC 2. ...And has a function "setUp" that takes parameter "self".
     def setUp(self):
         self.driver = MailpileSeleniumTest.DRIVER
 
