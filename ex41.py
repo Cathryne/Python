@@ -10,9 +10,9 @@ PHRASES = {
       "Make a class named %%% that is-a %%%.",
     "class %%%(object):\n\tdef __init__(self, ***)":
       "class %%% has-a __init__ that takes self and *** parameters.",
-    "class %%%(object)\n\tdef ***(self, @@@)":
+    "class %%%(object):\n\tdef ***(self, @@@)":
       "class %%% has-a function named *** that takes self and @@@ parameters.",
-    "*** = %%()":
+    "*** = %%%()":
       "Set *** to an instance of class %%%.",
     "***.***(@@@)":
       "From *** get the *** function and call it with the parameters self and @@@.",
@@ -20,19 +20,25 @@ PHRASES = {
       "From *** get the *** attribute and set it to '***'."
 }
 
-# do they want to drill phrases first
+# check for certain command argument
 if len(sys.argv) == 2 and sys.argv[1] == "english":
+    # sys.arg is list, with script's filename as first/0th element but is only created if command argument is given at all
     PHRASE_FIRST = True
 else:
     PHRASE_FIRST = False
 
 # load up the words from the website
 for word in urlopen(WORD_URL).readlines():
+    # fills empty word list with words from downloaded file
     WORDS.append(word.strip())
+    # strip is function of module 'string'
 
 def convert(snipped, phrase):
+    # initialise lists with items to be compiled into sentence later
+    # list comprehension is way to construct lists from conditional statements
     class_names = [w.capitalize() for w in random.sample(WORDS, snipped.count("%%%"))]
     other_names = random.sample(WORDS, snipped.count("***"))
+    # 'sample(population, k)' is method of class 'random' that returns list of k elements picked randomly from population
     results = []
     param_names = []
 
@@ -42,6 +48,9 @@ def convert(snipped, phrase):
 
     for sentence in snipped, phrase:
         result = sentence[:]
+        # CSQ: "slice" syntax of copying a list from 1st to last element
+
+        # next 3 for loops insert elements from _names lists into result sentence
 
         # fake class names
         for word in class_names:
@@ -71,8 +80,10 @@ try:
             if PHRASE_FIRST:
                 question, answer = answer, question
 
+            # poses assembled question, waits for input & displays answer no matter what
             print question
-            raw_input("> ")
-            print "ANSWER:  %s\n\n" % answer
+            raw_input("INPUT:  ")
+            print "ANSWER: %s\n\n" % answer
 except EOFError:
+    # class in module 'exceptions'; is returned when Python tries to read beyond end of file
     print "\nBye"
