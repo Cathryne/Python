@@ -66,8 +66,14 @@ class Escape(object):
 
         print "Unfortunately, %d of them are damaged, but you don't know which ones." % N_damaged_pods
 
-        pod = str(raw_input("You better pick an undamaged pod... "))
-
+        while True:
+            try:
+                pod = str(raw_input("You better pick an undamaged pod... "))
+            except ValueError:
+                print "Please type the pod's letter."
+                continue
+            else:
+                break
         if pod in damaged_pods:
             print "The escape failed :-("
         else:
