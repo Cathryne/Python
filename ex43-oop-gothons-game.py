@@ -6,7 +6,7 @@ class Scene(object):
 
 class Engine(object):
 
-    def __init(self, scene_map):
+    def __init__(self, scene_map):
         pass
 
     def play(self):
@@ -40,7 +40,7 @@ class Escape(object):
 
 class Map(object):
 
-    def __init_(self, start_scene):
+    def __init__(self, start_scene):
         pass
 
     def next_scene(self, scene_name):
