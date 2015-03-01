@@ -23,7 +23,7 @@ MakePopenUnsafe()
 class ElementHasClass(object):
     # RMC 2. ...And has an "__init__" function that takes parameters "self", "locator_tuple" and "class_name"...
     def __init__(self, locator_tuple, class_name):
-        # RMC 3. & 4. ...Sets its own attributes "locator" and "class_name" of to "locator_tuple" and "class_name"
+        # RMC 3. & 4. ...Sets its own attributes "locator" and "class_name" to "locator_tuple" and "class_name"
         self.locator = locator_tuple
         self.class_name = class_name
 
@@ -39,7 +39,7 @@ class ElementHasClass(object):
 class ElementHasNotClass(object):
     # RMC 2. ...And has an "__init__" function that takes parameters "self", "locator_tuple" and "class_name"...
     def __init__(self, locator_tuple, class_name):
-        # RMC 3. & 4. ...Sets its own attributes "locator" and "class_name" of to "locator_tuple" and "class_name"
+        # RMC 3. & 4. ...Sets its own attributes "locator" and "class_name" to "locator_tuple" and "class_name"
         self.locator = locator_tuple
         self.class_name = class_name
 
@@ -141,7 +141,7 @@ class MailpileSeleniumTest(MailPileUnittest):
         ...         self.driver.save_screenshot('screen2.png')
         ...         self.assertIn('Contacts', self.driver.title)
     """
-    # RMC 3. & 4. ...Which has an attribute "__metaclass__" which is set to an (an instance of class?) "SeleniumScreenshotOnExceptionAspecter"
+    # RMC 3. & 4. ...Which has an attribute "__metaclass__" which is set to (an instance of class?) "SeleniumScreenshotOnExceptionAspecter"
     __metaclass__ = SeleniumScreenshotOnExceptionAspecter
 
     # RMC 3. ...And has the attributes "DRIVER" and "http_worker" set to None
