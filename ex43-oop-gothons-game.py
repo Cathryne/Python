@@ -1,6 +1,8 @@
 # Exercise 43: Basic Object-Oriented Analysis and Design
 # http://learnpythonthehardway.org/book/ex43.html
 
+import random
+
 # Scene is-an object
 class Scene(object):
 
@@ -24,7 +26,7 @@ class Death(object):
 
     # Death has-an enter function that takes self as an parameter.
     def enter(self):
-        pass
+        print "You died in a funny way!"
 
 
 # same as above
@@ -32,23 +34,44 @@ class Death(object):
 class Corridor(object):
 
     def enter(self):
-        pass
+        print "You are in the central corridor of the ship. Where do you want to go next?"
+        places = ['Armory', 'Bridge', 'Escape Pod']
+
+        for idx, place in enumerate(places):
+            print idx, place
+            # learned from https://stackoverflow.com/questions/522563/; alternative to for-looping over range()
 
 class Armory(object):
 
     def enter(self):
-        pass
+        print "You find a bomb."
 
 class Bridge(object):
 
     def enter(self):
-        pass
+        print "You can set the bomb here."
 
 class Escape(object):
 
     def enter(self):
-        pass
+        pods = ['A', 'B', 'C', 'D', 'E']
+        N_pods = len(pods)
+        N_damaged_pods = int(N_pods * 2 / 3)
+        #damaged_pods = random.sample(pods, N_damaged_pods)
+        damaged_pods = ['C', 'D', 'E']
 
+        print "This is the list of the %d escape pods:" % (N_pods)
+        for pod in pods:
+            print pod
+
+        print "Unfortunately, %d of them are damaged, but you don't know which ones." % N_damaged_pods
+
+        pod = str(raw_input("You better pick an undamaged pod... "))
+
+        if pod in damaged_pods:
+            print "The escape failed :-("
+        else:
+            print "The escape worked :-)"
 
 # Map is-an object
 class Map(object):
